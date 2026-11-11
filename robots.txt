@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://freemind.app/sitemap.xml
+Sitemap: https://free-mind.app/sitemap.xml
