@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Freemind for Mac</title>
+  <meta name="description" content="Download Freemind, a simple, organized text editor for Mac. Universal app for Apple silicon and Intel, macOS 14 or later. Free, no account.">
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171716" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://freemind.app/download">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Freemind">
+  <meta property="og:title" content="Download Freemind for Mac">
+  <meta property="og:description" content="A simple, organized text editor for Mac. Open. Write. It's saved.">
+  <meta property="og:url" content="https://freemind.app/download">
+  <meta property="og:image" content="https://freemind.app/assets/screenshot-paper.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="/assets/fonts/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/fonts/Lato-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+  <style>
+    @font-face { font-family: "Lato"; font-weight: 300; src: url("/assets/fonts/Lato-Light.ttf") format("truetype"); font-display: swap; }
+    @font-face { font-family: "Lato"; font-weight: 400; src: url("/assets/fonts/Lato-Regular.ttf") format("truetype"); font-display: swap; }
+    @font-face { font-family: "Lato"; font-weight: 700; src: url("/assets/fonts/Lato-Bold.ttf") format("truetype"); font-display: swap; }
+
+    :root {
+      --bg: #f4f1ea;
+      --paper: url("/assets/paper-light.jpg");
+      --surface: #f8f6f1;
+      --text: #262522;
+      --muted: #7b786f;
+      --line: rgba(60, 50, 30, .14);
+      --accent: #262522;
+      --accent-text: #f4f1ea;
+      --glow: rgba(190, 150, 80, .28);
+      --shadow: 0 1px 2px rgba(60,45,20,.05), 0 30px 60px -28px rgba(60,45,20,.28);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #171716; --paper: url("/assets/paper-dark.jpg"); --surface: #1d1d1b;
+        --text: #e9e6de; --muted: #8e8b83; --line: rgba(255,255,255,.1);
+        --accent: #e9e6de; --accent-text: #171716; --glow: rgba(210,170,100,.2);
+        --shadow: 0 1px 2px rgba(0,0,0,.4), 0 30px 60px -28px rgba(0,0,0,.7);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #171716; --paper: url("/assets/paper-dark.jpg"); --surface: #1d1d1b;
+      --text: #e9e6de; --muted: #8e8b83; --line: rgba(255,255,255,.1);
+      --accent: #e9e6de; --accent-text: #171716; --glow: rgba(210,170,100,.2);
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 30px 60px -28px rgba(0,0,0,.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
+      background: var(--bg) var(--paper) repeat; background-size: 512px;
+      color: var(--text); font-family: "Lato", -apple-system, "Helvetica Neue", sans-serif;
+      font-size: 18px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1040px, 100% - 48px); margin-inline: auto; }
+
+    header { position: sticky; top: 0; z-index: 50; padding: 14px 0; pointer-events: none; }
+    header .wrap {
+      pointer-events: auto; width: min(900px, 100% - 32px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 9px 10px 9px 18px; border-radius: 999px; border: 1px solid var(--line);
+      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 72%, transparent);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4);
+      box-shadow: var(--shadow);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 19px; }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    nav { display: flex; align-items: center; gap: 24px; font-size: 15px; color: var(--muted); }
+    nav a { text-decoration: none; transition: color .15s; }
+    nav a:hover, .theme:hover { color: var(--text); }
+    .theme { background: none; border: 0; cursor: pointer; color: var(--muted); font: inherit; font-size: 15px; }
+    nav a.nav-cta, nav a.nav-cta:hover { background: var(--accent); color: var(--accent-text); padding: 8px 18px; border-radius: 999px; font-weight: 700; font-size: 14.5px; white-space: nowrap; transition: opacity .15s; }
+    nav a.nav-cta:hover { opacity: .86; }
+    .burger { display: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: none; color: var(--text); cursor: pointer; align-items: center; justify-content: center; }
+    .burger svg { width: 18px; height: 18px; }
+    .burger .x { display: none; }
+    .burger[aria-expanded="true"] .bars { display: none; }
+    .burger[aria-expanded="true"] .x { display: block; }
+    .menu {
+      display: none; pointer-events: auto; width: min(900px, 100% - 32px); margin: 8px auto 0; padding: 8px;
+      flex-direction: column; border-radius: 22px; border: 1px solid var(--line);
+      background: var(--surface); background: color-mix(in srgb, var(--surface) 86%, transparent);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4);
+      box-shadow: var(--shadow);
+    }
+    .menu a, .menu .theme { display: block; text-align: left; padding: 13px 14px; border-radius: 12px; font-size: 17px; color: var(--text); text-decoration: none; }
+    .menu a:hover, .menu .theme:hover { background: var(--hl); }
+    .menu .theme { width: 100%; color: var(--muted); }
+    @media (max-width: 640px) {
+      nav a.hide-sm, nav .theme { display: none; } nav { gap: 12px; } .nav-cta .more { display: none; } header .wrap { padding-left: 14px; }
+      .burger { display: inline-flex; } .menu.open { display: flex; }
+    }
+    @media (max-width: 380px) { header .wrap { padding: 8px 8px 8px 12px; } .brand { gap: 8px; font-size: 17px; } .brand img { width: 26px; height: 26px; } nav { gap: 10px; } nav a.nav-cta, nav a.nav-cta:hover { padding: 7px 14px; } .theme { font-size: 14px; } }
+
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 0 72px; }
+    .stage { text-align: center; position: relative; }
+    .stage::before {
+      content: ""; position: absolute; left: 50%; top: 52px; width: 340px; height: 340px; translate: -50% -50%;
+      background: radial-gradient(closest-side, var(--glow), transparent); pointer-events: none; z-index: -1;
+    }
+    .app-icon { width: 112px; height: 112px; border-radius: 26px; box-shadow: var(--shadow); }
+    h1 { font-weight: 300; font-size: clamp(38px, 7vw, 64px); line-height: 1.08; letter-spacing: -.02em; margin-top: 40px; }
+    .lead { max-width: 420px; margin: 18px auto 0; color: var(--muted); font-size: 19px; text-wrap: balance; }
+    .cta { margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--accent-text);
+      text-decoration: none; padding: 15px 30px; border-radius: 999px; font-weight: 700; font-size: 17px; transition: opacity .15s;
+    }
+    .btn:hover { opacity: .86; }
+    .btn svg { width: 18px; height: 18px; }
+    .small { color: var(--muted); font-size: 14px; }
+    .status { min-height: 1.65em; color: var(--muted); font-size: 15px; margin-top: 26px; transition: opacity .3s; }
+    .status a { text-decoration: underline; text-underline-offset: 3px; }
+
+    .steps {
+      list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      max-width: 760px; margin: 56px auto 0; text-align: left;
+    }
+    .steps li {
+      counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+      padding: 18px 20px; font-size: 15.5px; line-height: 1.5; color: var(--muted);
+    }
+    .steps li::before { content: counter(s); display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--muted); margin-bottom: 8px; }
+    .steps b { color: var(--text); font-weight: 700; display: block; font-size: 16.5px; margin-bottom: 2px; }
+    @media (max-width: 720px) { .steps { grid-template-columns: 1fr; max-width: 420px; } }
+
+    footer { padding: 0 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
+    footer a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="/"><img src="/assets/icon-512.png" alt="" width="30" height="30">Freemind</a>
+      <nav aria-label="Main">
+        <a class="hide-sm" href="/">Home</a>
+        <a class="hide-sm" href="/#organize">Organization</a>
+        <a class="hide-sm" href="/#backgrounds">Backgrounds</a>
+        <a class="hide-sm" href="/#privacy">Privacy</a>
+        <a class="hide-sm" href="/#faq">FAQ</a>
+        <button class="theme" type="button" aria-label="Toggle dark mode">Dark</button>
+        <a class="nav-cta" href="/download">Download<span class="more"> for Mac</span></a>
+        <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+          <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+          <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </nav>
+    </div>
+    <div class="menu" id="menu">
+      <a href="/">Home</a>
+      <a href="/#organize">Organization</a>
+      <a href="/#backgrounds">Backgrounds</a>
+      <a href="/#privacy">Privacy</a>
+      <a href="/#faq">FAQ</a>
+      <button class="theme" type="button" data-long="1" aria-label="Toggle dark mode">Dark mode</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap stage">
+      <img class="app-icon" src="/assets/icon-512.png" width="112" height="112" alt="Freemind app icon">
+      <h1>Download Freemind</h1>
+      <p class="lead">A simple, organized text editor for Mac. Free, no account needed.</p>
+
+      <div class="cta">
+        <a class="btn" id="dl" href="/download/Freemind.zip" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+          Download for Mac
+        </a>
+        <span class="small">Apple silicon &amp; Intel · macOS 14 or later · 2.6 MB</span>
+      </div>
+
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <ol class="steps">
+        <li><b>Open the zip</b>Double-click Freemind.zip in your Downloads folder.</li>
+        <li><b>Move to Applications</b>Drag freemind.app into your Applications folder.</li>
+        <li><b>Open and write</b>The app is notarized by Apple. Start typing, it's saved.</li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">Freemind is provided “as is”, without warranty of any kind. · <a href="https://x.com/cactuskoding" rel="me noopener" target="_blank">Joris Kapeta</a></div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement, btns = document.querySelectorAll(".theme");
+      function current() { return root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); }
+      function label() { var d = current() === "dark"; btns.forEach(function (b) { b.textContent = b.dataset.long ? (d ? "Light mode" : "Dark mode") : (d ? "Light" : "Dark"); }); }
+      try { var saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; } catch (e) {}
+      label();
+      btns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          var next = current() === "dark" ? "light" : "dark";
+          root.dataset.theme = next;
+          try { localStorage.setItem("theme", next); } catch (e) {}
+          label();
+        });
+      });
+      var burger = document.getElementById("burger"), menu = document.getElementById("menu");
+      function setMenu(open) { menu.classList.toggle("open", open); burger.setAttribute("aria-expanded", open ? "true" : "false"); }
+      burger.addEventListener("click", function () { setMenu(burger.getAttribute("aria-expanded") !== "true"); });
+      menu.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+    })();
+    (function () {
+      var link = document.getElementById("dl"), status = document.getElementById("status");
+      function started() {
+        status.innerHTML = 'Download started. If nothing happened, <a href="' + link.getAttribute("href") + '" download>click here</a>.';
+      }
+      // The link itself starts the download; the message only appears after a real click.
+      link.addEventListener("click", started);
+    })();
+  </script>
+  <noscript><style>#status { display: none; }</style></noscript>
+</body>
+</html>
