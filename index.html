@@ -299,7 +299,7 @@
         <a class="hide-sm" href="#privacy">Privacy</a>
         <a class="hide-sm" href="#faq">FAQ</a>
         <button class="theme" type="button" aria-label="Toggle dark mode">Dark</button>
-        <a class="nav-cta" href="/download">Download<span class="more"> for Mac</span></a>
+        <a class="nav-cta" href="/download" data-track="download_click_nav">Download<span class="more"> for Mac</span></a>
         <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu">
           <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
           <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -320,7 +320,7 @@
       <h1>A simple place for raw ideas.</h1>
       <p class="lead">A simple, organized text editor for Mac. Open. Write. It's saved.</p>
       <div class="cta">
-        <a class="btn" href="/download">
+        <a class="btn" href="/download" data-track="download_click_hero">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
           Download for Mac
         </a>
@@ -464,7 +464,7 @@
   <footer>
     <div class="wrap">
       <div class="foot-cta">
-        <a class="btn" href="/download">
+        <a class="btn" href="/download" data-track="download_click_footer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
           Download for Mac
         </a>
@@ -478,6 +478,14 @@
   </footer>
 
   <script>
+    (function () {
+      // Custom events: each element with data-track sends its own event to the tracker.
+      document.addEventListener("click", function (e) {
+        var el = e.target.closest("[data-track]");
+        if (!el || !window.visitors) return;
+        window.visitors.track(el.getAttribute("data-track"), { page: location.pathname });
+      });
+    })();
     (function () {
       var root = document.documentElement, btns = document.querySelectorAll(".theme");
       function current() { return root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); }
